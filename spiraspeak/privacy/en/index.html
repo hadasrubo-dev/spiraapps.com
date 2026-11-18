@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpiraSpeak Privacy Policy</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- DRAFT 2026-11-17. Prepared without legal advice; not reviewed by a lawyer. Translation of /spiraspeak/privacy/ (Hebrew, which governs). Keep the two in step; the UPDATE WHEN comments are on the same paragraphs in both. -->
+<h1>SpiraSpeak Privacy Policy</h1>
+<p class="muted"><a href="/">SpiraApps</a> · <a href="/spiraspeak/privacy/">עברית</a> · <a href="/terms/">Terms of use</a></p>
+<p>Last updated: November 17, 2026</p>
+
+<p>SpiraSpeak is an app for practising speech and voice, for iPhone and Android, currently in a trial stage. Its screens are in Hebrew, so setting names below are given in Hebrew. This page says plainly what stays on the phone, what leaves it, where it goes and why. There is no user account, no advertising and no tracking across apps or sites, and we don't sell data.</p>
+<p>Know this up front: some features send text or sound to other companies' services (Microsoft, Apple, Google, Groq), and sharing with a therapist stores practice data on our server. The details follow.</p>
+
+<h2>Health-related data</h2>
+<p>Speech practice is part of therapy, so what the app measures and keeps (loudness, pitch, rate, scores, goals, the words it recognised, the age and sex you chose to give) is information about health. We treat it as sensitive. Most of it stays on the phone; what leaves is listed below.</p>
+
+<h2>What stays on the phone</h2>
+<p>Practice history (numbers and a loudness trace, not the words spoken), scores, goals, the voice profile (pitch figures that help tell your voice from another), age and sex, sentences you added and recordings you saved with them, settings, and your therapist's phone number if you typed it. The recording of a practice round is temporary and replaced by the next round; a recording you saved with a sentence stays until you delete the sentence.</p>
+<p>On iPhone this data is included in the phone's backup (iCloud or a computer), so restoring a backup brings it back. On Android cloud backup is off for the app; a phone maker's direct phone-to-phone transfer may still carry the data over.</p>
+<p>On iPhone the app reads the calendar on the phone only, to remind you of a meeting with your therapist, and uses the camera to scan a connection code (QR) and to briefly measure the distance to your face; no image is kept or sent.</p>
+<!-- UPDATE WHEN: the Android release build exists (see the Hebrew page). -->
+<p>In the Android trial build, the recording of the last recognised round is also kept as a temporary file in the app's private folder until the next round.</p>
+
+<h2>Reading aloud: Microsoft</h2>
+<!-- Updated 2026-11-18: the device voice is the default (apps not yet released with it). UPDATE WHEN: the default voice engine changes to the device voice (security review H2 iOS / H1 Android), or the Edge engine is replaced by Azure through our own server. -->
+<p>By default the app reads aloud with the phone's own voice, and the text stays on the phone. If you choose the Microsoft voice (and accept the notice shown when you choose it), then while the phone is online every text the app reads aloud is sent as text to Microsoft's online read-aloud service (the Edge browser's service) and comes back as sound. That includes the practice sentences, sentences you wrote or your therapist sent, the spoken feedback after a round, and the AI's replies in a conversation. Microsoft sees the text and the phone's IP address. Our use of this service is not covered by an agreement between us and Microsoft, and we don't know how long it keeps the text.</p>
+<p><strong>Turning it off:</strong> הגדרות (Settings) → הגדרות קול → מנוע קול → "מובנה במכשיר" (built into the device). The phone's own voice then does the reading and the text isn't sent. If you choose "Azure AI Speech" and enter your own key, the text goes to your own Azure account at Microsoft.</p>
+
+<h2>Speech recognition: Apple and Google</h2>
+<p>To know which words were said, the round's recording goes through speech recognition.</p>
+<p><strong>iPhone:</strong> when online, the sound is sent to Apple's speech recognition service; offline, recognition happens on the phone if the device supports it. This also applies to the continuous listening on the conversation screen, which picks up other people speaking in the room. Apple handles the sound under its own privacy policy; we never receive it.</p>
+<!-- UPDATE WHEN: iOS gets an "on-device recognition only" setting (review iOS M6), or the Android GOOGLE_OFFLINE route is put behind the Google switch (review Android M2). -->
+<p><strong>Android:</strong> by default recognition happens on the phone, in the system's recognition engine. On phones where that engine doesn't know Hebrew, the app uses Google's Hebrew model installed on the phone and asks it to work offline; that engine belongs to Google or the phone's maker, and we can't guarantee it honours the request. Google's online recognition is used only if you turn on the switch "לאפשר את מנוע הזיהוי של Google (עשוי לשלוח את הקול לשרת)" in Settings.</p>
+<p>The recognised words are not kept in the history on the phone.</p>
+
+<h2>AI conversation and word guess: Groq</h2>
+<!-- UPDATE WHEN: an in-app AI notice / consent switch ships (review iOS H1, Android H2), or the provider or model changes. -->
+<p>In "שיחה עם AI" (AI conversation), in an AI item inside a set, and in the game "ניחוש מילים" (word guess), what you said is sent <strong>as text</strong> (not sound) to our server and from there to the AI provider Groq, which runs the model and returns an answer. In a conversation each turn sends everything said so far, plus a short description the app adds about your voice (such as loudness and rate) and the form of address. In word guess it sends the description you spoke, or the secret word, which may be a personal word you added. If you turn on "חיפוש באינטרנט בשיחה" (web search in the conversation; off by default), parts of the conversation may become search queries at Groq.</p>
+<p>Our server passes the request on and does not store the conversation; it records only how much usage time each device identifier has spent (see "Device identifier"). Groq is a US company with servers outside Israel; we can't tell you here how long it keeps the text. The conversation is not kept on the phone after it ends.</p>
+<p><strong>Avoiding it:</strong> these features are optional. At present the app has no single switch that turns them all off: the "הצגת AI" switch in Settings hides the AI conversation from the menu but does not block word guess or an AI item inside a set. If you don't want the text sent, don't use them.</p>
+<!-- UPDATE WHEN: the developer mode and its live-voice screen are compiled out of store builds (review iOS M7). Then delete the next paragraph. -->
+<p>The iPhone app contains a developer test screen, locked by a code, that holds a live voice conversation with OpenAI and sends it the sound itself. It is not part of normal use and doesn't open without the code.</p>
+
+<h2>Sharing with a therapist</h2>
+<p>Sharing is off until you start it ("התחלת שיתוף"), and you can stop it at any moment. It goes through our sync server. <strong>Voice recordings are never sent by sharing</strong>, on either platform.</p>
+<p><strong>Sent when you start sharing,</strong> before you approve any watcher: the display name you chose, the device identifier, and the list of screens you already connected.</p>
+<!-- UPDATE WHEN: iOS gates /session/result on watcherApproved (review therapist H2). Then delete the iPhone sentence below. -->
+<p><strong>On iPhone, in the current version,</strong> a summary of every round finished while sharing is on (exercise name, scores, measurements and the recognised words) is sent to the server and stored there even if you haven't approved a watcher yet. On Android it is sent only after approval.</p>
+<p><strong>Sent after you approve a watcher</strong> (a therapist, or your own second screen): live, the exercise text (including sentences you wrote), the loudness trace, the recognised words, scores and feedback, thresholds and measurement settings, the list of exercises in the set, your self-rating, and in a free conversation its transcript including the AI's replies. The phone also sends up to 200 round summaries from your history, including rounds practised while sharing was off, your goals with their starting point and history, and the last eight weeks of "speaking while thinking" figures.</p>
+<!-- UPDATE WHEN: the server changes in SpeakSyncServer's working tree are deployed (30-day retention, a delete route, link-only history, patient-device proof – review therapist C1, C3, H3, M1, M3). -->
+<p><strong>Stored on the server:</strong> the round summaries (up to 200 per room code), the goals and their history, and the thinking figures are kept on our server so that the therapist can look at them when you are not connected. At present they are held in the server's memory only, with no fixed deletion date: they are erased when the server restarts (which happens from time to time), and there is not yet a button in the app that deletes them. Stopping sharing, removing a therapist or making a new code ("קוד חדש") does not delete what was already stored.</p>
+<p><strong>Who can see it:</strong> whoever you approved, live; a therapist you connected, also the stored summaries, also when you are not connected; and we, as the server's operator. Therapists we have given access to the viewing page can see a list of who is sharing at that moment: display name, room code and current exercise name. The display name need not be a full name. The server's operating logs include the room code and display name, and are kept by the hosting provider for a limited time.</p>
+<p><strong>The room code is a key.</strong> The app has no accounts, so the 8-digit room code is what protects the data on the server: someone who knows it may be able to reach that data. Guard it like a password and give it only to your therapist.</p>
+<p><strong>Remote control</strong> is off by default. If you turn on "אפשר למטפל לשלוט מרחוק", an approved watcher can change the exercise, change thresholds, send a set or a sentence, and start a round, which turns on the microphone and speech recognition while the practice screen is open.</p>
+<p>The therapist's notes and the patient names the therapist writes down stay in the therapist's browser or phone and are not sent to us.</p>
+
+<h2>Device identifier, launch check-in and crash reports</h2>
+<p>The app uses a device identifier: a string derived (by SHA-256) from the identifier the system gives our apps on iPhone, or from a random number the app makes up on Android. It is not your phone number, not your Apple or Google account, and not an advertising identifier. It is used to meter the AI allowance and to identify the device in sharing. Because it is sent to the same server together with your display name when you share, it should not be thought of as anonymous.</p>
+<!-- UPDATE WHEN: check-in and crash upload start only after the disclaimer is accepted, or get an off switch (review iOS M2); or Android gains a check-in / crash reporter. -->
+<p><strong>On iPhone</strong> the app sends our server, at every launch and every return to it: the device identifier, the app and system versions, the install dates, and the "שם המכשיר" (device name) if you typed one in Settings (optional). If the app crashed, it sends the reason and code location of the crash at the next launch. There is currently no switch to turn this off. <strong>On Android</strong> there is no launch check-in and there are no crash reports.</p>
+<p>The server keeps, per device identifier: the versions, the first and last check-in times, the name you typed, crash reports, and how much AI usage time was spent. This is kept in the server's database until we delete it; we have not yet set a retention period.</p>
+<p>"דיווח על תקלה" (report a problem) is a file you create and send yourself through the share sheet; it contains settings and recent scores. The name of an exercise you wrote yourself is the sentence itself, so it may appear in the file.</p>
+
+<h2>Where data is processed</h2>
+<p>Our server is hosted by Render, outside Israel. Microsoft, Apple, Google and Groq process what is sent to them on their own servers outside Israel, under their own terms. Everything is sent over encrypted connections (HTTPS).</p>
+<!-- UPDATE WHEN: the owner confirms the Render region of speaksync-oc29.onrender.com and where its Postgres database is hosted. -->
+
+<h2>Children</h2>
+<!-- UPDATE WHEN: the app keeps AI and the online voice off for minors until a guardian confirms (review iOS M5, Android M7). -->
+<p>The app accepts ages from 3 and has games suited to children. For a child under 18, a parent or guardian, or the therapist together with the parent, installs the app, decides which features to turn on and agrees to its use. The app itself does not currently ask for a parent's approval and does not switch features off by age. For children we recommend choosing the "מובנה במכשיר" voice, not using the AI conversation and word guess, and sharing only with the therapist.</p>
+
+<h2>Stopping and deleting</h2>
+<p><strong>Stop sharing:</strong> "הפסקת השיתוף" on the sharing screen; watchers stop seeing at once. You can also remove a connected therapist or screen, and make a new code.</p>
+<p><strong>Delete from the phone:</strong> "מחיקת כל נתוני התרגול" on the results screen deletes scores and practice history only. Goals, sentences and recordings, the voice profile, age and sex remain; deleting the app deletes everything on the phone (on iPhone, except what is in a backup).</p>
+<p><strong>Delete from the server, see your data or correct it:</strong> write to support@spiraapps.com with your room code and, if you can, your device name. We will delete the sharing data, the device row, the crash reports and the usage figures linked to you. We cannot delete for you what was already sent to Microsoft, Apple, Google or Groq.</p>
+
+<h2>Changes</h2>
+<p>The app is in a trial stage and its behaviour changes. When something written here changes, we will update this page and the date at its top.</p>
+
+<h2>Contact</h2>
+<p>Questions and requests: support@spiraapps.com</p>
+</body>
+</html>
