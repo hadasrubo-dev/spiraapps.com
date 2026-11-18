@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HafuchOt Privacy Policy</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- DRAFT 2026-11-17. Prepared without legal advice; not reviewed by a lawyer. Translation of /hafuchot/privacy/ (Hebrew, which governs for users in Israel), 2026-11-18. Keep the two in step; the UPDATE WHEN comments are on the same paragraphs in both. Describes the iOS app (1.45), the Android app (0.1) and server/ as the code stood on 2026-11-17. -->
+<h1>HafuchOt Privacy Policy</h1>
+<p class="muted"><a href="/">SpiraApps</a> · <a href="/hafuchot/privacy/">עברית</a> · <a href="/terms/">Terms of use</a></p>
+<p>Last updated: November 17, 2026</p>
+<p class="muted">This is a translation of the Hebrew page. If the versions differ, the Hebrew version prevails for users in Israel.</p>
+
+<p>HafuchOt (״הפוך-אות״) is a word game for iPhone and Android. This page explains what happens to your data when you play. The game has no user account, no advertising, no other companies' analytics tools and no tracking across apps or sites. Nothing is sold in it, and we don't sell data.</p>
+
+<h2>What stays on the device</h2>
+<p>Single play, play against the computer and the daily challenge all run on the device and send nothing. The settings, the daily challenge results, the statistics against opponents (name, wins, losses) and the credit balance are stored on the device. The daily reminder is a local notification; sharing a daily result happens only when you choose to, and does not include the nickname.</p>
+
+<h2>Device identifier and nickname</h2>
+<p>The game makes up a random number and keeps it on the device; only a hash (SHA-256) of it is sent to the server. The identifier is not linked to your Apple or Google account, your phone number or the hardware. On iPhone it is kept in the Keychain, so it remains even after the game is deleted and installed again.</p>
+<p>The nickname is text you choose. It doesn't have to be your name, and it is shown to the opponent in an online game.</p>
+
+<h2>Sync with the server (iPhone)</h2>
+<p>On iPhone the game sends our server – at launch and every time you return to it, after every game, before an online game and when you close the settings – the device identifier, the nickname, the credit balance, the number of games you played in each mode (single, against the computer, online), the game version, the system version and the platform. This is how credits are kept, gifts and messages from us arrive, and we see whether the game works. There is currently no switch that turns the sync off. The Android version does not sync; it sends an identifier and nickname only in an online game.</p>
+<p>A word you type in the word check in the settings (iPhone) is sent to the server to be checked.</p>
+
+<h2>Online play</h2>
+<p>When you open a room or join one, the device identifier, the nickname, the game language and the clock settings are sent to the server, and during the game – the moves. The opponent sees your nickname, the board and the score, and a short public identifier derived from your identifier (so that their device remembers the statistics against you); they do not see the letters in your hand or the identifier itself. Rooms are kept only in the server's memory and are deleted after six hours without activity.</p>
+<p>To give a "new opponent" gift once per pair, the server keeps, for each pair of devices that played each other, both identifiers and the time of the first game.</p>
+<p>On iPhone, finding a player close by is done over the local network (Bonjour) and shows nearby phones your device's name as set on the phone; the camera is used only to scan a room's QR code, and no picture is kept.</p>
+
+<h2>What is kept on the server, where and for how long</h2>
+<!-- UPDATE WHEN: the owner confirms the current database (server/RENDER.md says a free Render PostgreSQL in Frankfurt that expired 2026-10-26) and the web service's region; and when the TEMP req.ip log in server/server.js:75-85 is removed. Without DATABASE_URL the same rows live in memory and are lost at restart. -->
+<p>For each device identifier we keep: the nickname, the platform and versions, the credit balance and game counts, the time of the first and last visit, the gifts given, and the pairs as described above. We can change an unsuitable nickname, block a device and send a message to a device. The server and the database are hosted by Render. The data is kept as long as the service runs or until you ask us to delete it; we have not set a retention period.</p>
+<p>Like any internet server, ours sees the device's IP address. It is used to limit abuse (too many rooms from one address), is not stored in the database, and may appear briefly in the operations logs of the server and of the hosting provider.</p>
+
+<h2>Children</h2>
+<p>The game is not directed at children under 13. We don't ask anyone for personal details; the only thing a player can type about themselves is the nickname. If a child typed a real name, it can be changed in the settings, or write to us and we will delete it from the server.</p>
+
+<h2>How to change and how to delete</h2>
+<p>The nickname is changed in the settings (iPhone). Deleting the game deletes what is on the device, except the identifier and the credit balance in the iPhone's Keychain. To delete the data on the server, write to us and give your nickname and when you last played, so that we can find the device.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be posted on this page with a new date.</p>
+
+<h2>Contact</h2>
+<p>Questions and requests: <a href="mailto:support@spiraapps.com">support@spiraapps.com</a></p>
+</body>
+</html>

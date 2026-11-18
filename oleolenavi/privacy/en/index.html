@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OleOleNavi Privacy Policy</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- DRAFT 2026-11-17. Prepared without legal advice; not reviewed by a lawyer. Translation of /oleolenavi/privacy/ (Hebrew, which governs for users in Israel), 2026-11-18. Keep the two in step; the UPDATE WHEN comments are on the same paragraphs in both. Describes the iOS app (0.39, "OleNavi"), the Android app (0.26, "סירה שנייה", debug builds only so far) and the sync server (/Users/rubo/projects/SyncServer, last commit 2026-07-22) as the code stood on 2026-11-17. Whether the deployed server equals that repo was not checked. -->
+<h1>OleOleNavi Privacy Policy</h1>
+<p class="muted"><a href="/">SpiraApps</a> · <a href="/oleolenavi/privacy/">עברית</a> · <a href="/terms/">Terms of use</a></p>
+<p>Last updated: November 17, 2026</p>
+<p class="muted">This is a translation of the Hebrew page. If the versions differ, the Hebrew version prevails for users in Israel.</p>
+
+<p>OleOleNavi is a boating aid app with voice guidance, for iPhone (with Apple Watch) and Android. Setting names are given below in Hebrew, as they appear in the app. This page explains what happens to your data, and above all to your location. The app has no user account, no advertising, no analytics tools and no purchases, and we don't sell data.</p>
+
+<h2>Location</h2>
+<p>The app uses the phone's precise location to navigate and give guidance. On iPhone it asks for access "While Using", and when you start navigating or boat sync – also "Always" access, so it can keep navigating while the screen is off; the system's location indicator is shown during that time. On Android the location is read only while the app is open or while its navigation service runs with a persistent notification. The watch does not read location; it receives the navigation state from the phone.</p>
+<p>The track you sailed, saved trails, points of interest, obstacles, routes and settings are stored on the phone only, until you delete them or the app.</p>
+
+<h2>Boat sync</h2>
+<p>Sync lets two boats see each other. On iPhone it is <strong>off by default</strong> and is turned on in Settings ← חיבור סירות ← ״מצב רחוק (ענן)״ (remote mode, cloud); once turned on, the app connects to the server by itself at every launch, until you choose ״ללא סנכרון״ (no sync) or ״התנתק״ (disconnect). On Android the connection is made only by tapping ״התחבר״ (connect).</p>
+<p><strong>What is sent:</strong> while the second boat is connected to the same room, the phone sends once or twice a second its location (latitude and longitude), heading, speed, heel angle and the time. If you turned on destination sharing, the destination's location and name are sent too. Text messages and commands you sent to the other boat go the same way. When connecting, the room code and the role (first or second boat) are sent.</p>
+<p><strong>The Android version also sends:</strong> a device identifier (a SHA-256 hash of the device identifier ANDROID_ID), the app version, the install dates and a "display name" if you typed one; and, from the first connection on, once a minute, sensor data for the sea state (heel, rocking, acceleration, the wind side and direction you marked) together with the room code and the device identifier, without location. This data is used to calibrate and improve the app.</p>
+<!-- UPDATE WHEN: the sync server's unauthenticated /debug/rooms, /debug/devices and /debug/sensors endpoints (SyncServer/server.js:104, 284, 292) are removed or protected, or rooms get real authentication. Until then do not describe the sync as private. -->
+<p><strong>Who sees it:</strong> the server passes the messages only to the other side in the same room. There are no accounts and no password: the only protection is the 6-digit room code, and anyone who knows or guesses it can connect and see the location. The connection is encrypted in transit (HTTPS), but the server itself sees the content. Don't treat the sync as a private or secure channel.</p>
+<p><strong>What is kept:</strong> the server holds the rooms and the latest sensor data in memory only; it has no database, and locations are neither stored nor logged. The operations log records the room code, the role, and on Android also the beginning of the device identifier, the version, the install dates and the display name; the log is kept by the hosting provider, Render, for a limited time. The server is hosted outside Israel. You can type the address of a different server in the settings; the data is then sent to that server.</p>
+<p><strong>Local mode (iPhone):</strong> in ״ללא סנכרון״ (no sync) mode, two phones close to each other can pass commands directly (Bluetooth/local Wi-Fi), without a server. Your device's name is shown to the other phone.</p>
+
+<h2>Wind, maps and place search</h2>
+<p><strong>Wind forecast:</strong> when the check against an internet forecast is on (the default on Android; on iPhone – in the sailing information mode), the boat's location is sent every ten minutes to the Open-Meteo service to get the wind at that spot. <strong>Maps and search:</strong> on iPhone the map, place search and place names come from Apple, which receives the area shown, the search words and the coordinates. On Android the map tiles come from OpenFreeMap (which sees which area is shown), and place search is done by the phone's location service (usually Google's), with the search words and the area around the boat. Each of these services also sees the phone's IP address, and acts under its own policy.</p>
+
+<h2>Microphone and voice commands</h2>
+<p>The microphone is on only when you give a voice command. The voice goes through speech recognition in the phone's engine – Apple's on iPhone, and usually Google's on Android – which may send it to the company's servers. We don't receive the voice and don't keep it. The voice guidance is spoken in the phone's built-in voice.</p>
+
+<h2>Camera, motion sensors and watch</h2>
+<p>The camera is used to measure the boom's angle against the sky (and on Android – for detectors you turn on); the pictures are analysed on the device only, and are neither stored nor sent. The motion sensors measure the boat's heel, and on the watch – hand movement. The app neither reads nor writes health data.</p>
+
+<h2>Logs you share</h2>
+<p>The diagnostic log (iPhone) and the heel calibration log (Android) are stored on the phone and leave it only if you share them yourself.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13.</p>
+
+<h2>How to turn things off and how to delete</h2>
+<p>Sync: ״ללא סנכרון״ (no sync) or ״התנתק״ (disconnect) (iPhone), ״התנתק״ in the notification or in the app (Android). Location: in the phone's settings, but without location there is no navigation. The internet wind forecast (iPhone): the ״בדיקה צולבת מתחזית אינטרנט״ (cross-check from internet forecast) switch. Deleting the app deletes everything on the phone. The server keeps no data about you beyond the temporary memory and the operations log; for questions or requests, write to us.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be posted on this page with a new date.</p>
+
+<h2>Contact</h2>
+<p>Questions and requests: <a href="mailto:support@spiraapps.com">support@spiraapps.com</a></p>
+</body>
+</html>

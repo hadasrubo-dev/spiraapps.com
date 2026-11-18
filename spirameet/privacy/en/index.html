@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpiraMeet Privacy Policy</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- DRAFT 2026-11-17. Prepared without legal advice; not reviewed by a lawyer. Translation of /spirameet/privacy/ (Hebrew, which governs for users in Israel), 2026-11-18. Keep the two in step; the UPDATE WHEN comments are on the same paragraphs in both. Describes the iOS and Android apps and the trial proxy (SpeakSyncServer) as the code stood on 2026-11-17. -->
+<h1>SpiraMeet Privacy Policy</h1>
+<p class="muted"><a href="/">SpiraApps</a> · <a href="/spirameet/privacy/">עברית</a> · <a href="/terms/">Terms of use</a></p>
+<p>Last updated: November 17, 2026</p>
+<p class="muted">This is a translation of the Hebrew page. If the versions differ, the Hebrew version prevails for users in Israel.</p>
+
+<p>SpiraMeet records a meeting, transcribes it, tells the speakers apart and summarises it, on iPhone and Android. Setting names are given below in Hebrew, as they appear in the app. This page explains what stays on the phone and what is sent from it, where and why. There is no user account, no advertising and no tracking across apps or sites, and we don't sell data.</p>
+<p>Other people speak in a meeting too. The recording and the transcript contain their voices and their words, and in cloud mode these are sent to AI providers. Before recording, <strong>it is your responsibility to tell the participants and get their consent</strong>; the app does not tell them by itself.</p>
+
+<h2>What stays on the phone</h2>
+<p>Meetings, recordings, transcripts, summaries, the documents you attached, the list of hidden names and the dictionary that turns a code back into a name are stored on the phone. We have no copy of them. They stay until you delete them: a single meeting, the recording only, or ״מחק את כל קבצי האודיו״ (delete all audio files) in Settings; deleting the app deletes everything.</p>
+<!-- UPDATE WHEN: recordings and meetings are excluded from backup (iOS isExcludedFromBackup / Android allowBackup=false or backup rules). Today only the downloaded models are excluded; the in-app explainer says "אין גיבוי אוטומטי", which the code does not enforce. -->
+<p>The app itself does not back anything up to a cloud of its own. However, the phone's general backup (iCloud or a computer on iPhone, Google's backup on Android) may include the app's data, depending on your phone's settings.</p>
+
+<h2>Cloud mode (the default)</h2>
+<p>In cloud mode <strong>the recording itself is sent</strong> for transcription, and then the text is sent for summarising – as they are, with the names:</p>
+<p><strong>Sound:</strong> the recording is sent to Groq (the Whisper model), and if Groq is unavailable – to OpenAI.</p>
+<p><strong>Text:</strong> the transcript, the names of the speakers and participants, the event title from the calendar (if you allowed calendar access), your dictionary terms, your chat questions about the meeting and the text of an attached document are sent to Groq; if it is unavailable – to Cerebras, and after it to OpenAI.</p>
+<p>All these requests go through our server, which holds the providers' keys and measures the trial allowance. The server passes the sound and text on and does not store them, neither in a file nor in a database; its operations log records only the beginning of the device identifier, the usage time charged and the model's name, and in case of an error – the error message the provider returned.</p>
+<p>According to the terms Groq and OpenAI have published (read on 16.11.2026), they do not train models on data sent this way, and an abuse-monitoring log is kept by them for up to 30 days. We did not check Cerebras's terms on this point. All three companies are American and their servers are outside Israel.</p>
+
+<h2>Private mode and ״פגישה פרטית״ (private meeting)</h2>
+<p>In private mode (Settings ← פרטיות ועיבוד ← ״פרטי — במכשיר״, or the ״פגישה פרטית״ switch for one meeting) transcription and speaker identification are done on the phone, and the recording is not sent for transcription. The mode is available only on phones with enough memory (on iPhone – 6GB or more), and needs a one-time download of models from huggingface.co and github.com.</p>
+<p><strong>What still leaves the phone in private mode:</strong></p>
+<p>• <strong>Text for the summary, the title, the chat and translation</strong> is sent to the AI provider, after the names in the hidden-names list have been replaced with codes (NAME1, NAME2…), and if the ״הסתר את כל המספרים״ (hide all numbers) switch is on (the default) – the numbers too. The codes are replaced back on the phone. The app itself suggests names, addresses, phone numbers and amounts to hide, but <strong>whatever was not detected and not added to the list is sent as it is</strong>, and the context and other details in the text may identify a person even without their name.</p>
+<p>• <strong>The review screen before sending</strong> shows exactly the text that will be sent and lets you hide more words, choose a provider or cancel; the text is sent only to the provider you chose. If you turned off ״בדיקה לפני שליחה לסיכום״ (review before sending for summary), the coded text is sent without you seeing it first. The chat about a meeting has no review screen.</p>
+<p>• <strong>״רק תמלול והפרדת דוברים — בלי שליחה״</strong> (transcription and speaker separation only – no sending): when this switch is on, no text is sent to an AI provider.</p>
+<!-- UPDATE WHEN: Android's live captions respect private mode (LiveTranscriber.start() is unconditional in NewMeetingViewModel.beginSegment, with no offline flag; iOS forces on-device recognition in private mode). -->
+<p>• <strong>Live captions while recording:</strong> on iPhone, in private mode, they are made on the phone; in cloud mode they are made by Apple's speech recognition, which may send the sound to its servers. On Android the captions are made by the phone's speech-recognition engine (usually Google's) even in private mode, and that engine may send the sound to its server.</p>
+<p>• <strong>The voice conversation with Liri</strong> (see below) sends your voice to OpenAI even in private mode.</p>
+
+<h2>Attached documents</h2>
+<p>A document is read on the phone (PDF, text, and on iPhone also a camera scan; the scan is not saved as a picture). For the chat about the meeting, up to the first 30,000 characters of the document are sent to the AI provider, for a short summary of it and for the answers. In cloud mode the text is sent as it is; in private mode – after the names the app found in the document have been added to the hidden list and replaced with codes. In ״מסמך לבדיקה״ (document for review) the text is always coded, and is sent only to the provider you chose and only when you tap ״שלח״ (send).</p>
+
+<h2>Liri – the voice assistant</h2>
+<p>A voice conversation with Liri is a direct connection from the phone to OpenAI: your voice is sent to it in real time, together with instructions that include the meeting's transcript and tasks (in private mode – with coded names; the numbers are not coded). Our server only issues a short-lived permit for the conversation and records its length. The wake word is detected by the phone's speech-recognition engine (on iPhone – Apple's; on the phone itself when the mode is private).</p>
+
+<h2>Trial allowance, device identifier and reports</h2>
+<p>To measure the trial allowance, every request carries a device identifier: a string derived (by SHA-256) from an identifier the system gives the app (on iPhone – the vendor identifier; on Android – the device identifier ANDROID_ID). It is not a phone number, an account or an advertising identifier. For each identifier the server stores: how much usage time was used (in total, by kind of action and by provider), the time of the first and last use, and whether the device was blocked or given a different allowance.</p>
+<p>At every launch the app sends our server a short report: the device identifier, the app version and system version, and the ״שם המכשיר״ (device name) if you typed one in Settings (optional; on Android also the install dates). If the app crashed, the crash's reason and its place in the code are sent at the next launch. This information is stored in the server's database until we delete it; we have not yet set a retention period. There is currently no switch that turns the reports off.</p>
+<p>The server is hosted by Render, outside Israel.</p>
+<!-- UPDATE WHEN: the owner confirms the Render region and the database host of speaksync-oc29.onrender.com. -->
+
+<h2>Permissions</h2>
+<p><strong>Microphone</strong> – to record the meeting, also while the screen is off. <strong>Speech recognition</strong> – for the live captions and the wake word. <strong>Calendar</strong> (optional) – to suggest the meeting's title; the title is included in the text sent for the summary. <strong>Location</strong> (optional) – to note where the meeting took place; on iPhone the coordinates are sent to Apple to get a place name. <strong>Camera</strong> (iPhone) – only to scan a document. <strong>Face ID</strong> – only if you turned on a lock for the app.</p>
+<!-- UPDATE WHEN: the iOS calendar usage string ("תוכן היומן נשאר על המכשיר בלבד", Info-BackgroundModes.plist) is corrected or the event title stops going into the summary prompt (GroqService.swift ~1007). -->
+
+<h2>Sharing and export</h2>
+<p>A transcript, summary, Word file or the recording leaves the app only when you share it yourself through the share menu, and goes where you chose.</p>
+
+<h2>How to turn things off and how to delete</h2>
+<p>So that recordings are not sent – choose private mode. So that no text is sent – turn on ״רק תמלול והפרדת דוברים — בלי שליחה״ and don't use Liri. Deleting from the phone – as described above. To delete the rows linked to your device on the server (allowance, launch and crash reports), or for any question, write to us and mention the ״שם המכשיר״ (device name) if you typed one. We cannot delete for you what has already been sent to the AI providers.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be posted on this page with a new date.</p>
+
+<h2>Contact</h2>
+<p>Questions and requests: <a href="mailto:support@spiraapps.com">support@spiraapps.com</a></p>
+</body>
+</html>
